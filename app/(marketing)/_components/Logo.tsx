@@ -9,8 +9,21 @@ const font = Poppins({
 
 const Logo = () => {
   return (
-    <div className="flex items-center w-full justify-center">
-      <Image src="/assets/logo.svg" height={40} width={40} alt="Logo" />
+    <div className="md:flex md:items-center w-full hidden">
+      <Image
+        src="/assets/logo.svg"
+        height={40}
+        width={40}
+        alt="Logo"
+        className="dark:hidden"
+      />
+      <Image
+        src="/assets/logo-dark.svg"
+        height={40}
+        width={40}
+        alt="Logo"
+        className="dark:block hidden"
+      />
       <p className={cn("font-semibold", font.className)}>Jotion</p>
     </div>
   );
