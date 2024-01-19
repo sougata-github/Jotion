@@ -11,15 +11,14 @@ const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   return (
-    <div className="max-w-3xl space-y-4 p-2">
-      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
-        Your Ideas, Documents, & Plans unified. Welcome <br />
-        to Jotion.
+    <div className="max-w-3xl space-y-4 py-2">
+      <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold">
+        Your Ideas, Documents, & Plans unified.
       </h1>
-      <h3 className="text-base sm:text-xl md:text-2xl font-medium">
+      <h3 className="text-base sm:text-xl md:text-2xl font-medium ">
         Jotion is the connected workspace where
         <br />
-        better, faster work happens.
+        better and faster work happens.
       </h3>
       {isLoading && (
         <div className="w-full flex items-center justify-center">

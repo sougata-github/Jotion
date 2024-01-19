@@ -18,7 +18,7 @@ const Hero = () => {
             className="object-contain dark:block hidden"
           />
         </div>
-        <div className="relative h-[400px] w-[400px] hidden md:block">
+        <div className="relative h-[400px] w-[400px] hidden lg:block">
           <Image
             src="/assets/reading.png"
             fill
