@@ -7,6 +7,7 @@ import { useMediaQuery } from "usehooks-ts";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
+import UserItem from "./UserItem";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -116,17 +117,17 @@ const Navigation = () => {
           role="button"
           onClick={collapse}
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-2 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100"
           )}
         >
           <ChevronsLeft className="h-6 w-6" />
         </div>
         <div>
-          <p>Action Items</p>
+          <UserItem />
         </div>
         <div className="mt-4">
-          <p>Documents</p>
+          <p></p>
         </div>
         <div
           onMouseDown={handleMouseDown}
@@ -139,7 +140,7 @@ const Navigation = () => {
         className={cn(
           "absolute top-0 z-[99999] left-60 w-[calc(100%-240px)]",
           isResetting && "transition-all ease-in-out duration-300",
-          isMobile && "left-0 w-full"
+          isMobile && "left-0 w-full overflow-x-hidden"
         )}
       >
         <nav className="bg-transparent px-3 py-2 w-full">
