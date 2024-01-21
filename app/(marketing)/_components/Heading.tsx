@@ -16,7 +16,8 @@ const Heading = () => {
         Your Ideas, Documents, & Plans unified.
       </h1>
       <h3 className="text-base sm:text-xl md:text-2xl font-medium ">
-        Jotion is the connected workspace where
+        <span className="font-bold">Jotion</span> is the connected workspace
+        where
         <br />
         better and faster work happens.
       </h3>
