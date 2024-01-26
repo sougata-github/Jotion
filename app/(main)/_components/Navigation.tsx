@@ -1,15 +1,23 @@
 "use client";
 
-import { ChevronsLeft, MenuIcon, PlusCircle } from "lucide-react";
+import {
+  ChevronsLeft,
+  MenuIcon,
+  PlusCircle,
+  Search,
+  Settings,
+} from "lucide-react";
 
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import UserItem from "./UserItem";
+
 import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
+
+import UserItem from "./UserItem";
 import Item from "./Item";
 import { toast } from "sonner";
 
@@ -141,6 +149,8 @@ const Navigation = () => {
         </div>
         <div>
           <UserItem />
+          <Item label="Search" icon={Search} isSearch onClick={() => {}} />
+          <Item label="Settings" icon={Settings} onClick={() => {}} />
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className="mt-4">
