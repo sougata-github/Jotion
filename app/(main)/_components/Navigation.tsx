@@ -8,10 +8,14 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import UserItem from "./UserItem";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
 const Navigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const documents = useQuery(api.documents.get);
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -60,7 +64,7 @@ const Navigation = () => {
   const handleMouseUp = () => {
     isResizingRef.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
+    document.removeEventListener("mouseup", handleMouseUp);
   };
 
   const handleMouseDown = (
@@ -72,7 +76,7 @@ const Navigation = () => {
     isResizingRef.current = true;
 
     document.addEventListener("mousemove", handleMouseMove);
-    //we are done with the cursor
+    //when we are done with the cursor
     document.addEventListener("mouseup", handleMouseUp);
   };
 
@@ -127,7 +131,9 @@ const Navigation = () => {
           <UserItem />
         </div>
         <div className="mt-4">
-          <p></p>
+          {documents?.map((document) => (
+            <p key={document._id}>{document.title}</p>
+          ))}
         </div>
         <div
           onMouseDown={handleMouseDown}
