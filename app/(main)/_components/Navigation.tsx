@@ -14,11 +14,12 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 
 import UserItem from "./UserItem";
 import Item from "./Item";
+import DocumentList from "./DocumentList";
 import { toast } from "sonner";
 
 const Navigation = () => {
@@ -47,7 +48,6 @@ const Navigation = () => {
     }
   }, [isMobile, pathname]);
 
-  const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
 
   const handleCreate = () => {
@@ -153,10 +153,8 @@ const Navigation = () => {
           <Item label="Settings" icon={Settings} onClick={() => {}} />
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
-        <div className="mt-4">
-          {documents?.map((document) => (
-            <p key={document._id}>{document.title}</p>
-          ))}
+        <div className="mt-2">
+          <DocumentList />
         </div>
         <div
           onMouseDown={handleMouseDown}
