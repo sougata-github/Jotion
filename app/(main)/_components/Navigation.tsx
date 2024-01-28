@@ -3,6 +3,7 @@
 import {
   ChevronsLeft,
   MenuIcon,
+  Plus,
   PlusCircle,
   Search,
   Settings,
@@ -155,6 +156,7 @@ const Navigation = () => {
         </div>
         <div className="mt-2">
           <DocumentList />
+          <Item onClick={handleCreate} label="Add a Page" icon={Plus} />
         </div>
         <div
           onMouseDown={handleMouseDown}
