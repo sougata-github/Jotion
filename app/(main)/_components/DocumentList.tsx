@@ -82,6 +82,8 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProps) => {
             level={level}
           />
           {expanded[document._id] && (
+            //to display all the child documents under a parent document
+            //all the documents with that parent document id
             <DocumentList parentDocumentId={document._id} level={level + 1} />
           )}
         </div>
