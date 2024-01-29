@@ -7,6 +7,7 @@ import {
   PlusCircle,
   Search,
   Settings,
+  Trash,
 } from "lucide-react";
 
 import { ElementRef, useEffect, useRef, useState } from "react";
@@ -22,6 +23,12 @@ import UserItem from "./UserItem";
 import Item from "./Item";
 import DocumentList from "./DocumentList";
 import { toast } from "sonner";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import TrashBox from "./TrashBox";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -157,6 +164,17 @@ const Navigation = () => {
         <div className="mt-2">
           <DocumentList />
           <Item onClick={handleCreate} label="Add a Page" icon={Plus} />
+          <Popover>
+            <PopoverTrigger className="w-full mt-4 ">
+              <Item label="Trash" icon={Trash} />
+            </PopoverTrigger>
+            <PopoverContent
+              side={isMobile ? "bottom" : "right"}
+              className="p-2 w-72"
+            >
+              <TrashBox />
+            </PopoverContent>
+          </Popover>
         </div>
         <div
           onMouseDown={handleMouseDown}
