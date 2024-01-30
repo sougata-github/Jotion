@@ -139,9 +139,11 @@ export const restore = mutation({
     const userId = identity.subject;
 
     const existingDocument = await ctx.db.get(args.id);
+
     if (!existingDocument) {
       throw new Error("Not found!");
     }
+
     if (existingDocument.userId !== userId) {
       throw new Error("Unauthorized");
     }
@@ -170,7 +172,8 @@ export const restore = mutation({
     if (existingDocument.parentDocument) {
       const parent = await ctx.db.get(existingDocument.parentDocument);
       if (parent?.isArchived) {
-        options.isArchived = undefined;
+        //when parent document is still archived but you have to restore the child
+        options.parentDocument = undefined;
       }
     }
 
