@@ -179,7 +179,7 @@ export const restore = mutation({
 
     const document = await ctx.db.patch(args.id, options);
 
-    //to restore the child documents as well: smart restore 😃
+    //to restore the child documents as well.
     recursiveRestore(args.id);
 
     return document;

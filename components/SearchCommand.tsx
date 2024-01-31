@@ -55,13 +55,16 @@ const SearchCommand = () => {
       <CommandInput placeholder={`Search ${user?.firstName}'s Jotion...`} />
       <CommandList>
         <CommandEmpty>No results found!</CommandEmpty>
-        <CommandGroup heading="documents">
+        <CommandGroup
+          heading={`${documents?.length ? "Documents" : "No documents"}`}
+        >
           {documents?.map((document) => (
             <CommandItem
               key={document._id}
               value={`${document.title}`}
               title={document.title}
               onSelect={onSelect}
+              className="cursor-pointer mt-1"
             >
               {document.icon ? (
                 <p className="mr-2 text-[18px]">{document.icon}</p>
