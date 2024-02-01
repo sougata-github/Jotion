@@ -44,7 +44,6 @@ const Item = ({
   documentIcon,
   active,
   expanded,
-  isSearch,
   level = 0,
   onExpand,
   label,
@@ -87,7 +86,7 @@ const Item = ({
         if (!expanded) {
           onExpand?.();
         }
-        // router.push(`/documents/${documentId}`);
+        router.push(`/documents/${documentId}`);
       }
     );
     toast.promise(promise, {
@@ -122,11 +121,6 @@ const Item = ({
         <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground " />
       )}
       <span className="truncate">{label}</span>
-      {isSearch && (
-        <kbd className="ml-auto pointer-events-none inline-flex pt-1 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <span className="text-xs">⌘</span>K
-        </kbd>
-      )}
       {!!id && (
         <div className="ml-auto flex items-center gap-x-2 ">
           <DropdownMenu>
@@ -173,7 +167,7 @@ Item.Skeleton = function ItemSkeleton({ level }: { level?: number }) {
       style={{
         paddingLeft: level ? `${level * 12 + 25}px` : "12x",
       }}
-      className="flex gap-x-2 py-[3px]"
+      className="flex gap-x-2 py-[3px] pl-2"
     >
       <Skeleton className="h-4 w-4" />
       <Skeleton className="h-4 w-[30%]" />
