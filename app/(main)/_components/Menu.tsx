@@ -69,7 +69,7 @@ const Menu = ({ documentId }: MenuProps) => {
 };
 
 Menu.Skeleton = function MenuSkeleton() {
-  return <Skeleton className="h-4 w-10" />;
+  return <Skeleton className="mt-1 h-6 w-10" />;
 };
 
 export default Menu;
