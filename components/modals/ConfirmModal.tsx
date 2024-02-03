@@ -34,8 +34,7 @@ const ConfirmModal = ({ children, onConfirm }: ConfirmModalProps) => {
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This note and all the notes inside it
-            will be deleted.
+            This action cannot be undone. This note be deleted forever!
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

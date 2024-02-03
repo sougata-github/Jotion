@@ -6,12 +6,13 @@ import { toast } from "sonner";
 import { Search, Trash, Undo } from "lucide-react";
 
 import { api } from "@/convex/_generated/api";
-import { Id } from "@/convex/_generated/dataModel";
+import { Doc, Id } from "@/convex/_generated/dataModel";
 
 import { useMutation, useQuery } from "convex/react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import ConfirmModal from "@/components/modals/ConfirmModal";
+import { useEdgeStore } from "@/lib/edgestore";
 
 const TrashBox = () => {
   const router = useRouter();
@@ -20,6 +21,8 @@ const TrashBox = () => {
   const documents = useQuery(api.documents.getTrash);
   const restore = useMutation(api.documents.restore);
   const remove = useMutation(api.documents.remove);
+
+  const { edgestore } = useEdgeStore();
 
   const [search, setSearch] = useState("");
 
@@ -44,15 +47,22 @@ const TrashBox = () => {
     });
   };
 
-  const onRemove = (documentId: Id<"documents">) => {
-    const promise = remove({ id: documentId });
+  const onRemove = async (document: Doc<"documents">) => {
+    //removes the file from the edge store bucket as well.
+    if (document.coverImage) {
+      await edgestore.publicFiles.delete({
+        url: document.coverImage,
+      });
+    }
+
+    const promise = remove({ id: document._id });
     toast.promise(promise, {
       loading: "Deleting note...",
       success: "Note Deleted.",
       error: "Failed to delete note!",
     });
 
-    if (params.documentId === documentId) {
+    if (params.documentId === document._id) {
       router.push("/documents");
     }
   };
@@ -97,7 +107,7 @@ const TrashBox = () => {
               >
                 <Undo className="h-4 w-4 text-muted-foreground" />
               </div>
-              <ConfirmModal onConfirm={() => onRemove(document._id)}>
+              <ConfirmModal onConfirm={() => onRemove(document)}>
                 <div
                   role="button"
                   className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"

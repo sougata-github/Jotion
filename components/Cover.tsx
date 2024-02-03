@@ -46,12 +46,7 @@ const Cover = ({ url, preview }: CoverProps) => {
   };
 
   return (
-    <div
-      className={cn(
-        "relative w-full h-[35vh] group bg-muted",
-        !url && "h-[12vh]"
-      )}
-    >
+    <div className={cn("relative w-full h-[35vh] group bg-muted")}>
       {!!url && <Image src={url} fill alt="cover" className="object-cover" />}
       {url && !preview && (
         <div className="opacity-0 group-hover:opacity-100 absolute bottom-5 right-5 flex items-center gap-x-2">

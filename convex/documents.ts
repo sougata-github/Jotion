@@ -171,8 +171,9 @@ export const restore = mutation({
 
     if (existingDocument.parentDocument) {
       const parent = await ctx.db.get(existingDocument.parentDocument);
-      if (parent?.isArchived) {
-        //when parent document is still archived but you have to restore the child
+      if (parent?.isArchived || !parent) {
+        //when parent document is still archived or when the parent document has been deleted
+        //but you have to restore the child.
         options.parentDocument = undefined;
       }
     }
@@ -207,24 +208,7 @@ export const remove = mutation({
       throw new Error("Unauthorized");
     }
 
-    const recursiveDelete = async (documentId: Id<"documents">) => {
-      const children = await ctx.db
-        .query("documents")
-        .withIndex("by_user_parent", (q) =>
-          q.eq("userId", userId).eq("parentDocument", documentId)
-        )
-        .collect();
-
-      for (const child of children) {
-        await ctx.db.delete(child._id);
-
-        await recursiveDelete(child._id);
-      }
-    };
-
     const document = await ctx.db.delete(args.id);
-
-    recursiveDelete(args.id);
 
     return document;
   },
