@@ -98,7 +98,7 @@ const Toolbar = ({ initialData, preview }: ToolBarProps) => {
       {!!initialData.icon && preview && (
         <p className="text-6xl pt-6">{initialData.icon}</p>
       )}
-      <div className="opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-4">
+      <div className="opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-2">
         {!initialData.icon && !preview && (
           <IconPicker asChild onChange={onIconSelect}>
             <Button
@@ -130,12 +130,12 @@ const Toolbar = ({ initialData, preview }: ToolBarProps) => {
           onKeyDown={onKeyDown}
           value={value}
           onChange={(e) => onInput(e.target.value)}
-          className="text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] resize-none cursor-end"
+          className="p-0 text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] resize-none cursor-end w-[200px] lg:w-full"
         />
       ) : (
         <div
           onClick={enableInput}
-          className="pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF]"
+          className="pb-[11.5px] w-fit text-5xl font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] "
         >
           {initialData.title}
         </div>

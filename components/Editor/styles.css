@@ -1,0 +1,65 @@
+/* Slash Menu styling*/
+.bn-container .bn-slash-menu {
+  margin-bottom: 40px;
+  height: 140px;
+  padding: 2px 4px;
+  position: relative;
+}
+
+.bn-container .bn-slash-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.bn-container .bn-slash-menu .mantine-Menu-item {
+  height: 50px;
+  margin-bottom: 2px;
+}
+
+.bn-container .bn-slash-menu .mantine-Menu-itemSection {
+  color: var(--bn-colors-tooltip-text);
+}
+
+.bn-container .bn-slash-menu .mantine-Menu-itemSection[data-position="left"] {
+  background-color: var(--bn-colors-tooltip-background);
+  border-radius: var(--bn-border-radius-small);
+  padding: 8px;
+}
+
+.bn-container .bn-slash-menu .mantine-Menu-itemLabel {
+  padding-right: 16px;
+}
+
+.bn-container .bn-slash-menu .mantine-Menu-itemLabel .mantine-Stack-root {
+  gap: 0;
+}
+
+/* Side Menu & Drag Handle styling */
+.bn-container .bn-side-menu {
+  background-color: transparent;
+}
+
+.bn-container .bn-side-menu .mantine-UnstyledButton-root {
+  background-color: transparent;
+  color: grey;
+}
+
+.bn-container .bn-side-menu .mantine-UnstyledButton-root:hover {
+  background-color: var(--bn-colors-hovered-background);
+}
+
+.bn-container .bn-drag-handle {
+  height: 24px;
+  width: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .bn-container .bn-slash-menu .mantine-Menu-itemSection {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 556px) {
+  .bn-container .bn-slash-menu {
+    padding: 4px 6px;
+  }
+}

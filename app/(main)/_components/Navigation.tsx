@@ -12,7 +12,9 @@ import {
 
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { useSearch } from "@/hooks/useSearch";
+import { useSettings } from "@/hooks/useSettings";
 
 import { cn } from "@/lib/utils";
 
@@ -22,16 +24,14 @@ import { api } from "@/convex/_generated/api";
 import UserItem from "./UserItem";
 import Item from "./Item";
 import DocumentList from "./DocumentList";
-import { toast } from "sonner";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
 import TrashBox from "./TrashBox";
-import { useSearch } from "@/hooks/useSearch";
-import { useSettings } from "@/hooks/useSettings";
 import Navbar from "./Navbar";
+import { toast } from "sonner";
 
 const Navigation = () => {
   const search = useSearch();
@@ -39,6 +39,7 @@ const Navigation = () => {
 
   const params = useParams();
   const pathname = usePathname();
+  const router = useRouter();
 
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -67,7 +68,9 @@ const Navigation = () => {
   const create = useMutation(api.documents.create);
 
   const handleCreate = () => {
-    const promsise = create({ title: "Untitled" });
+    const promsise = create({ title: "Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
     toast.promise(promsise, {
       loading: "Creating a new note...",
       success: "New Note created.",

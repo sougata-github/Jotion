@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 import { ImageIcon, X } from "lucide-react";
 
 import { useCoverImage } from "@/hooks/useCoverImage";
@@ -72,6 +73,10 @@ const Cover = ({ url, preview }: CoverProps) => {
       )}
     </div>
   );
+};
+
+Cover.Skeleton = function CoverSkeleton() {
+  return <Skeleton className="w-full h-[35vh]" />;
 };
 
 export default Cover;
