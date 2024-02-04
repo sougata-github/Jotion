@@ -94,7 +94,6 @@ export const create = mutation({
 
     const userId = identity.subject;
 
-    //create a document
     const document = await ctx.db.insert("documents", {
       title: args.title,
       parentDocument: args.parentDocument,
