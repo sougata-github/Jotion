@@ -135,7 +135,7 @@ const Toolbar = ({ initialData, preview }: ToolBarProps) => {
       ) : (
         <div
           onClick={enableInput}
-          className="pb-[11.5px] w-fit text-5xl font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] "
+          className="pb-[11.5px] w-[200px] text-5xl font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] lg:w-[600px] md:w-[400px]"
         >
           {initialData.title}
         </div>
