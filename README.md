@@ -1,4 +1,4 @@
-# Joition
+# Jotion
 
 <p> A full-stack Productivity and Note-Taking Web Application built using NextJS.</p>
 
