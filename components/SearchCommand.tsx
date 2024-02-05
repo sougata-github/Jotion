@@ -61,9 +61,9 @@ const SearchCommand = () => {
           {documents?.map((document) => (
             <CommandItem
               key={document._id}
-              value={`${document._id}`}
+              value={`${document.title}`} //search by document title
               title={document.title}
-              onSelect={onSelect}
+              onSelect={() => onSelect(document._id)}
               className="cursor-pointer mt-1"
             >
               {document.icon ? (
