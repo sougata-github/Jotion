@@ -4,7 +4,8 @@
 
 
 ## Preview of Live Site
-![Screenshot (114)](https://github.com/sougata-github/Notion-Clone/assets/102734212/3dcdefd6-35e8-4b40-9ccd-224399dfa0d4)
+![Screenshot (116)](https://github.com/sougata-github/Notion-Clone/assets/102734212/2382c3e0-124d-4de5-bdfa-f9b8c5c90e32)
+
 ![Screenshot (115)](https://github.com/sougata-github/Notion-Clone/assets/102734212/6397d133-03d2-43ae-baf1-dc5afa941142)
 
 ## Key Features:
