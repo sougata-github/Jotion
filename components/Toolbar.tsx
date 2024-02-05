@@ -130,12 +130,12 @@ const Toolbar = ({ initialData, preview }: ToolBarProps) => {
           onKeyDown={onKeyDown}
           value={value}
           onChange={(e) => onInput(e.target.value)}
-          className="p-0 text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] resize-none cursor-end w-[200px] md:w-[400px] lg:w-[600px]"
+          className="p-0 text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] resize-none cursor-end w-[250px] md:w-[500px] lg:w-[600px]"
         />
       ) : (
         <div
           onClick={enableInput}
-          className="pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] w-[200px] md:w-[400px] lg:w-[600px]"
+          className="pb-[11.5px] text-5xl font-bold break-words outline-none text-[#3F3F3F]dark:text-[#CFCFCF] w-[250px] md:w-[500px] lg:w-[600px]"
         >
           {initialData.title}
         </div>

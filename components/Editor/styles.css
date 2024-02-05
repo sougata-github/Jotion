@@ -1,7 +1,13 @@
+/* Placeholder styling */
+.bn-is-empty .bn-inline-content:before,
+.bn-is-filter .bn-inline-content:before {
+  color: var(--bn-colors-side-menu);
+}
+
 /* Slash Menu styling*/
 .bn-container .bn-slash-menu {
   margin-bottom: 40px;
-  height: 140px;
+  height: 180px;
   padding: 2px 4px;
   position: relative;
 }
@@ -53,6 +59,16 @@
 }
 
 @media screen and (max-width: 800px) {
+  .bn-container .bn-slash-menu {
+    height: 140px;
+  }
+
+  .bn-is-empty .bn-inline-content:before {
+    text-wrap: nowrap;
+    width: 75px;
+    overflow-x: clip;
+  }
+
   .bn-container .bn-slash-menu .mantine-Menu-itemSection {
     display: none;
   }
