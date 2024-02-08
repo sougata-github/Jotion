@@ -40,3 +40,4 @@
 - Sonner
 - Zustand
 - Zod
+- Vercel
