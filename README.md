@@ -6,8 +6,6 @@
 ## Preview of Live Site
 ![Screenshot (116)](https://github.com/sougata-github/Notion-Clone/assets/102734212/2382c3e0-124d-4de5-bdfa-f9b8c5c90e32)
 
-![Screenshot (115)](https://github.com/sougata-github/Notion-Clone/assets/102734212/6397d133-03d2-43ae-baf1-dc5afa941142)
-
 ## Key Features:
 
 - Real-time Database
