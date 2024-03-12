@@ -6,7 +6,7 @@
 ## Preview of Live Site
 ![Screenshot (116)](https://github.com/sougata-github/Notion-Clone/assets/102734212/2382c3e0-124d-4de5-bdfa-f9b8c5c90e32)
 
-## Key Features:
+## Key Features
 
 - Real-time Database
 - Notion-style Editor
@@ -24,7 +24,7 @@
 - Cover image of each document
 - Recover deleted files
 
-## Tech-Stack:
+## Tech-Stack
 
 - NextJS 14
 - Tailwind CSS
