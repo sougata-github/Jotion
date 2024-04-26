@@ -24,7 +24,7 @@
 - Cover image of each document
 - Recover deleted files
 
-## Tech-Stack
+## Tech Stack
 
 - NextJS 14
 - Tailwind CSS
