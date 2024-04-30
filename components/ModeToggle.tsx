@@ -28,13 +28,22 @@ export function ModeToggle() {
         align="end"
         className="dark:bg-[#1F1F1F] dark:shadow-md"
       >
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("light")}
+          className="cursor-pointer"
+        >
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("dark")}
+          className="cursor-pointer"
+        >
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("system")}
+          className="cursor-pointer"
+        >
           System
         </DropdownMenuItem>
       </DropdownMenuContent>

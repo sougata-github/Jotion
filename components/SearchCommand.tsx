@@ -53,7 +53,7 @@ const SearchCommand = () => {
   return (
     <CommandDialog open={isOpen} onOpenChange={onClose}>
       <CommandInput placeholder={`Search ${user?.firstName}'s Jotion...`} />
-      <CommandList>
+      <CommandList className="custom-scrollbar">
         <CommandEmpty>No results found!</CommandEmpty>
         <CommandGroup
           heading={`${documents?.length ? "Documents" : "No documents"}`}
