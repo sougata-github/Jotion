@@ -1,6 +1,6 @@
 # Jotion
 
-<p> A full-stack Productivity and Note-Taking Web Application built using NextJS.</p>
+<p> A full-stack Productivity and Note-Taking Web Application built using Next.js.</p>
 
 
 ## Preview of live site
@@ -28,7 +28,7 @@
 
 ## Tech Stack
 
-- NextJS 14
+- Next.js 14
 - Tailwind CSS
 - TypeScript
 - Clerk
