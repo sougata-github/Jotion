@@ -19,7 +19,6 @@
 - Real time updates
 - File upload
 - File deletion
-- File replacement
 - Expandable sidebar
 - Fully responsive
 - Publish your note to the web
