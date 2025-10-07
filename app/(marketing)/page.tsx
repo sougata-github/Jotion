@@ -1,6 +1,6 @@
+import Hero from "./_components/Hero";
 import Footer from "./_components/Footer";
 import Heading from "./_components/Heading";
-import Hero from "./_components/Hero";
 
 const MarketingPage = () => {
   return (

@@ -10,28 +10,28 @@ import {
   Trash,
 } from "lucide-react";
 
-import { ElementRef, useEffect, useRef, useState } from "react";
+import { useMutation } from "convex/react";
 import { useMediaQuery } from "usehooks-ts";
-import { useParams, usePathname, useRouter } from "next/navigation";
 import { useSearch } from "@/hooks/useSearch";
 import { useSettings } from "@/hooks/useSettings";
+import { ElementRef, useEffect, useRef, useState } from "react";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 
-import UserItem from "./UserItem";
 import Item from "./Item";
-import DocumentList from "./DocumentList";
+import Navbar from "./Navbar";
+import { toast } from "sonner";
+import TrashBox from "./TrashBox";
+import UserItem from "./UserItem";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import TrashBox from "./TrashBox";
-import Navbar from "./Navbar";
-import { toast } from "sonner";
+import DocumentList from "./DocumentList";
 
 const Navigation = () => {
   const search = useSearch();
@@ -59,11 +59,11 @@ const Navigation = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
-  useEffect(() => {
-    if (isMobile) {
-      collapse();
-    }
-  }, [isMobile, pathname]);
+  // useEffect(() => {
+  //   if (isMobile) {
+  //     collapse();
+  //   }
+  // }, [isMobile, pathname]);
 
   const create = useMutation(api.documents.create);
 
@@ -71,6 +71,7 @@ const Navigation = () => {
     const promsise = create({ title: "Untitled" }).then((documentId) =>
       router.push(`/documents/${documentId}`)
     );
+
     toast.promise(promsise, {
       loading: "Creating a new note...",
       success: "New Note created.",
@@ -90,6 +91,7 @@ const Navigation = () => {
     if (newWidth > 480) {
       newWidth = 480;
     }
+
     if (sidebarRef.current && navbarRef.current) {
       sidebarRef.current.style.width = `${newWidth}px`;
       navbarRef.current.style.setProperty("left", `${newWidth}px`);
@@ -130,6 +132,7 @@ const Navigation = () => {
         isMobile ? "0" : "calc(100% - 240px)"
       );
       navbarRef.current.style.setProperty("left", isMobile ? "100%" : "240px");
+
       setTimeout(() => setIsResetting(false), 300);
     }
   };
@@ -142,6 +145,7 @@ const Navigation = () => {
       sidebarRef.current.style.width = "0";
       navbarRef.current.style.setProperty("width", "100%");
       navbarRef.current.style.setProperty("left", "0");
+
       setTimeout(() => setIsResetting(false), 300);
     }
   };
@@ -170,7 +174,7 @@ const Navigation = () => {
           <UserItem />
           <Item label="Search" icon={Search} onClick={search.onOpen} />
           <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
-          <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
+          <Item label="New page" icon={PlusCircle} onClick={handleCreate} />
         </div>
         <div className="mt-2">
           <DocumentList />

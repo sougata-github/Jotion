@@ -89,6 +89,7 @@ const Item = ({
         router.push(`/documents/${documentId}`);
       }
     );
+
     toast.promise(promise, {
       loading: "Creating a new note...",
       success: "New Note created.",
@@ -112,13 +113,13 @@ const Item = ({
           className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1"
           onClick={handleExpand}
         >
-          <ChevronIcon className="h-4 w-4 shrink text-muted-foreground/50 " />
+          <ChevronIcon className="h-4 w-4 shrink text-muted-foreground/50" />
         </div>
       )}
       {documentIcon ? (
         <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
       ) : (
-        <Icon className="shrink-0 h-[18px] w-[18px] mr-2 text-muted-foreground " />
+        <Icon className="shrink-0 h-[18px] w-[18px] mr-2 text-muted-foreground" />
       )}
       <span className="truncate">{label}</span>
       {!!id && (
@@ -129,7 +130,7 @@ const Item = ({
                 role="button"
                 className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
               >
-                <MoreHorizontal className="h-4 w-4 text-muted-foreground " />
+                <MoreHorizontal className="h-4 w-4 text-muted-foreground" />
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent

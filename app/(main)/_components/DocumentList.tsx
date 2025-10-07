@@ -56,18 +56,17 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProps) => {
 
   return (
     <>
-      <p
-        style={{
-          paddingLeft: level ? `${level * 12 + 25}px` : undefined,
-        }}
-        className={cn(
-          "hidden text-sm font-medium text-muted-foreground/80",
-          expanded && "last:block",
-          level === 0 && "hidden pl-4"
-        )}
-      >
-        {level === 0 ? "No pages" : "No pages inside"}
-      </p>
+      {documents.length === 0 && (
+        <p
+          style={{
+            paddingLeft: level ? `${level * 12 + 25}px` : undefined,
+          }}
+          className={cn("text-sm font-medium text-muted-foreground/80")}
+        >
+          {level === 0 ? "No pages" : "No pages inside"}
+        </p>
+      )}
+
       {documents.map((document) => (
         <div key={document._id}>
           <Item

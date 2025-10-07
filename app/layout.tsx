@@ -1,14 +1,18 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+
+import { Inter } from "next/font/google";
+
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { ModalProvider } from "@/components/providers/ModalProvider";
+import { ConvexClientProvider } from "@/components/providers/ConvexProvider";
+
+import { EdgeStoreProvider } from "@/lib/edgestore";
+
+import { cn } from "@/lib/utils";
 
 import { Toaster } from "sonner";
 
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { ConvexClientProvider } from "@/components/providers/ConvexProvider";
-import { ModalProvider } from "@/components/providers/ModalProvider";
-import { EdgeStoreProvider } from "@/lib/edgestore";
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 

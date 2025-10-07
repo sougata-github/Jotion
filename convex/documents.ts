@@ -20,6 +20,7 @@ export const archive = mutation({
     if (!existingDocument) {
       throw new Error("Not found!");
     }
+
     if (existingDocument.userId !== userId) {
       throw new Error("Unauthorized");
     }
@@ -37,7 +38,6 @@ export const archive = mutation({
         await ctx.db.patch(child._id, {
           isArchived: true,
         });
-
         //passing the current document id as the parent id
         await recursiveArchive(child._id);
       }
@@ -101,6 +101,7 @@ export const create = mutation({
       isArchived: false,
       isPublished: false,
     });
+
     return document;
   },
 });
@@ -159,7 +160,6 @@ export const restore = mutation({
         await ctx.db.patch(child._id, {
           isArchived: false,
         });
-
         await recursiveRestore(child._id);
       }
     };
@@ -200,9 +200,11 @@ export const remove = mutation({
     const userId = identity.subject;
 
     const existingDocument = await ctx.db.get(args.id);
+
     if (!existingDocument) {
       throw new Error("Not found!");
     }
+
     if (existingDocument.userId !== userId) {
       throw new Error("Unauthorized");
     }
@@ -245,6 +247,7 @@ export const getById = query({
       throw new Error("Not Found");
     }
 
+    //someone is logges out can also view
     if (document.isPublished && !document.isArchived) {
       return document;
     }

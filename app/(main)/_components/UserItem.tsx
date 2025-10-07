@@ -1,6 +1,5 @@
 "use client";
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,9 +7,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+
+import { ChevronsLeftRight } from "lucide-react";
 
 import { SignOutButton, useUser } from "@clerk/clerk-react";
-import { ChevronsLeftRight } from "lucide-react";
 
 const UserItem = () => {
   const { user } = useUser();
